@@ -7,9 +7,28 @@
     </head>
     <body style='margin: 0; overflow: hidden;'>
         <a-scene embedded arjs="debugUIEnabled:false;">
+
+            <!-- OBJ形式のCGモデルの読み込み -->
+            <a-assets>
+              <a-asset-item id="obj" src="rocket.obj"></a-asset-item>   <!-- objファイル -->
+              <a-asset-item id="mtl" src="rocket.mtl"></a-asset-item>   <!-- mtlファイル -->
+            </a-assets>
+
             <a-marker preset='custom' type='pattern' url='./pattern-marker_test.patt'>
-                <a-box position="0 0.5 0" wireframe="true"></a-box>
-            </a-marker>
+                <a-obj-model
+                  src="#obj"
+                  mtl="#mtl"
+                  scale="0.005 0.005 0.005"
+                  position="0 0.5 0">
+                  <a-animation
+                    attribute="rotation"
+                    to="0 360 0"
+                    dur="3000"
+                    easing="linear"
+                    repeat="indefinite">
+                  </a-animation>
+                </a-obj-model>
+                </a-marker>
             <a-entity camera></a-entity>
         </a-scene>
     </body>
