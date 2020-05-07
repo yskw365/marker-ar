@@ -1,12 +1,15 @@
 <!DOCTYPE html>
+<html>
 <head>
+    <meta charset="utf-8">
     <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
     <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.2/aframe/build/aframe-ar.js"></script>
     <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
+    <title>WebARテスト</title>
 </head>
 <body style='margin: 0; overflow: hidden;'>
 
-<a-scene embedded arjs="debugUIEnabled:false;">
+<a-scene stats embedded arjs='debugUIEnabled: false; sourceType: webcam; detectionMode: mono; maxDetectionRate: 30; canvasWidth: 240; canvasHeight: 180'>
     <a-assets>
         <a-asset-item id="kijimun" src="/kijimun3a.glb"></a-asset-item>
     </a-assets>
@@ -16,5 +19,6 @@
     </a-marker>
     <a-entity camera></a-entity>
 </a-scene>
+
 </body>
 </html>
