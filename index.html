@@ -4,14 +4,27 @@
         <meta charset="utf-8">
         <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
         <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.2/aframe/build/aframe-ar.js"></script>
+        <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v4.2.0/dist/aframe-extras.min.js"></script>
     </head>
     <body style='margin: 0; overflow: hidden;'>
         <a-scene embedded arjs="debugUIEnabled:false;">
             <a-marker preset='custom' type='pattern' url='./pattern-marker_test.patt'>
-                <a-sphere position="0 0 -4" color="#222" scale="1 1 1"></a-sphere>
+
+                <a-entity gltf-model="src: url(./text.gltf);"
+                          animation-mixer="loop: pingpong;"
+                          position="-0.5 0.1 0"
+                          scale="0.25 0.25 0.25"
+                          shadow="receive: true"></a-entity>
+                <a-plane position="0 0 0"
+                         rotation="-90 0 0"
+                         width="2" height="2"
+                         color="#fff"
+                         shadow="receive: true"></a-plane>
+                <a-entity light="type: directional; color: #fff; castShadow:true;"
+                          position="-10 10 10"></a-entity>
+
             </a-marker>
             <a-entity camera></a-entity>
         </a-scene>
     </body>
 </html>
-
